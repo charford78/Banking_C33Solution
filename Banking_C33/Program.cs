@@ -29,6 +29,8 @@ namespace Banking_C33
 
             acct1.Withdraw(-1000);
             acct1.Print();
+            acct1.Deposit(-5000);
+            acct1.Print();
         }
     }
 }
