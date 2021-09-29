@@ -8,7 +8,8 @@ namespace Banking_C33
 {
     class Account
     {
-        //here are the Properties for Account class
+        //here are the Properties for Account class.  These are provided by the user when creating 
+        //a new instance of Account class.
         public int Id { get; set; }
         public decimal Balance { get; set; } = 0;
         public string Description { get; set; }
