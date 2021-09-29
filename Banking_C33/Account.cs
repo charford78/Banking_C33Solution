@@ -8,10 +8,12 @@ namespace Banking_C33
 {
     class Account
     {
+        //here are the Properties for Account class
         public int Id { get; set; }
         public decimal Balance { get; set; } = 0;
         public string Description { get; set; }
 
+        //here is the Deposit method
         public bool Deposit(decimal amount)
         {
             if (amount > 0)
