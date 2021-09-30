@@ -26,8 +26,20 @@ namespace Banking_C33
         //calculated and deposited.
         public decimal CalculateAndPayInterest (int months)
         {
+            
+            //creating variable interest which will store a decimal value that is the result of the formula to
+            //the right of the '='.  This will be how much interest has accrued and is to be deposited into
+            //the account balance.  Since this class has inherited a copy of the Account class it has also
+            //inherited the 'Balance' property that was defined in the Account class.  Thus we are able to 
+            //call 'Balance' in the statement below.
             var interest = Balance * (InterestRate / 12) * months;
+            
+            //This calls the 'Deposit' method defined the Account class and executes it using the value passed
+            //into the 'interest' variable which was defined above.  This will add the value of 'interest' to
+            //the Account Balance.
             Deposit(interest);
+            
+            //since we defined this method to return a decimal value we are returning the value of 'interest'.
             return interest;
         }
     }
