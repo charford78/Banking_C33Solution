@@ -9,11 +9,29 @@ namespace Banking_C33
             var sav2 = new Savings2(100);
             sav2.Description = "Greg's Savings2";
             sav2.InterestRate = 0.12m;
-            sav2.Print();            
-            sav2.Deposit(5000);
-            sav2.Withdraw(2000); 
-            sav2.CalculateAndPayInterest(1);
             sav2.Print();
+            try
+            {
+            
+                sav2.Deposit(5000);
+                sav2.Withdraw(2000);
+                sav2.CalculateAndPayInterest(1);
+                sav2.Print();
+                
+                sav2.Withdraw(10000);
+            } catch (AmountGreaterThanZeroException ex)
+            {
+                Console.WriteLine("Amount cannot be 0 or negative number!");
+            } catch (InsufficientFundsException ex)
+            {
+                Console.WriteLine("Insufficient funds!");
+                Console.WriteLine($"Current balance is {ex.CurrentBalance}.");
+                Console.WriteLine($"Amount to withdraw is {ex.AmountToWithdraw}.");
+            } catch (Exception ex)
+            {
+                Console.WriteLine("Call your programmer at 2am on Saturday.");
+            }
+
 
 
 
@@ -56,6 +74,7 @@ namespace Banking_C33
             //    acct1.Print();
             //    acct1.Deposit(-5000);
             //    acct1.Print();
+        
         }
     }
 }

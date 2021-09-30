@@ -28,9 +28,7 @@ namespace Banking_C33
                 this.Balance = this.Balance + amount;
                 return true;
             }
-            //This will execute if a negative number or 0 is entered as the amount.
-            else Console.WriteLine("You cannot enter a negative number or 0!");
-            return false;
+            throw new AmountGreaterThanZeroException();
         }
         //this creates the Withdraw method, public accessibility, also a bool data type, amount of withdrawal
         //needs to be passed into the amount variable.  Made 'amount' a decimal type like in Deposit.
@@ -46,16 +44,15 @@ namespace Banking_C33
                 if (amount > this.Balance)
                 //the following executes if the amount entered is greater than the balance.
                 {
-                    Console.WriteLine("Insufficient funds!");
-                    return false;
+                    throw new InsufficientFundsException(this.Balance, amount);
                 }
                 //if the withdrawal amount is <= the balance than 'amount' is subtracted from 'Balance'.
                 this.Balance = this.Balance - amount;
                 return true;
             }
             //if 'amount' is 0 or a negative number this will execute
-            else Console.WriteLine("You cannot enter a negative number or 0!");
-            return false;
+            else 
+                throw new AmountGreaterThanZeroException();
         }
         
         //this creates the Transfer method.  It allows transferring an 'amount' of money from one account to 
